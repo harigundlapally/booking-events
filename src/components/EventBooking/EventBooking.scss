@@ -1,0 +1,162 @@
+@import '../../mixins','../../variables';
+
+.eventBooking{ 
+    position: relative;
+    background-color: $tertiaryColor;
+    overflow: auto;
+    height: calc(100vh - 68px);
+    @include padding-h(24px);
+    @include for-tablet-portrait-up{
+        height: calc(100vh - 72px);
+    }
+    @include for-tablet-landscape-up{
+        height: calc(100vh - 98px);
+        @include padding-h(0px);
+    }
+    
+    &__wrapper {
+        @include margin-hv(auto,20px);
+        width: 100%;
+        background-color: $whiteColor;
+        @include border-radius(4px);
+        @include padding(32px);
+        @include box-sizing(border-box);
+
+        @include for-tablet-landscape-up{
+            width: 574px;
+            @include margin-hv(auto,56px);
+        }
+    }
+
+    &__header{
+        text-align: center;
+        border-bottom: 1px solid $borderColor;
+        @include margin-b(32px);
+        
+        h1{
+            font-size: $fs-24;
+            line-height: 26px;
+            font-weight: $font-bold;
+            @include margin-b(16px);
+        }
+        h2{
+            font-size: $fs-18;
+            line-height: 21px;
+            font-weight: $font-regular;
+            @include margin-b(8px);
+        }
+        h3{
+            font-size: $fs-18;
+            line-height: 21px;
+            font-weight: $font-regular;
+            @include margin-b(16px);
+
+            span{
+                font-weight: $font-extrabold;
+                color: $primaryColor;
+            }
+        }
+    }
+
+    &__form {
+        .form-group {
+            width: 100%;
+            position: relative;
+            @include margin-b(16px);
+
+            label{
+                font-size: $fs-18;
+                font-weight: $font-regular;
+                @include margin-b(8px);
+                display: block;
+            }
+
+            input{
+                width: 100%;
+                font-size: $fs-18;
+                @include padding(16px);
+                @include border-radius(4px);
+                border: 1px solid $borderColor;
+                @include box-sizing(border-box);
+
+                &:focus, &:focus-visible {
+                    outline: 0;
+                    box-shadow: none; 
+                }
+            }
+
+            &--inline {
+                @include d-flex(center, center);
+                @include margin-b(20px);
+
+                label{
+                    min-width: 30px;
+                    @include for-tablet-portrait-up{
+                        min-width: 80px;
+                    }
+                }
+
+                .error-message {
+                    position: absolute !important;
+                    bottom: -15px !important;
+                    left: 30px !important;
+                    @include for-tablet-portrait-up{
+                        left: 80px !important;
+                    }
+                }
+            }
+
+            .error-message {
+                font-size: $fs-13;
+                position: relative;
+                width: 100%;
+                bottom: 0px;
+                left: 0;
+                color: $errorColor;
+            }
+        }
+
+        .attendees {
+            h4{
+                @include margin-b(16px);
+            }
+
+            .remove-attendee {
+                position: absolute;
+                top: 18px;
+                cursor: pointer;
+                right: 15px;
+
+                img{
+                    @include rotate(45deg);
+                }
+            }
+        }
+
+        .actions {
+            @include d-flex(center, space-between);
+            flex-direction: column;
+            width: 100%;
+            gap: 10px;
+            @include for-tablet-portrait-up{
+                flex-direction: row;
+            }
+        }
+    }
+
+    &__modal-data{
+        @include padding-v(32px);
+
+        h2 {
+            font-weight: $font-bold;
+            font-size: $fs-24;
+            @include margin-b(8px);
+        }
+
+        h3 {
+            font-weight: $font-regular;
+            font-size: $fs-18;
+            @include margin-b(0px);
+        }
+    }
+}

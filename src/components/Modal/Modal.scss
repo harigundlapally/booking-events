@@ -1,0 +1,58 @@
+@import '../../mixins','../../variables';
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 10;
+    background-color: rgba(0,0,0,0.5);
+    
+    &__dialog{
+        width: calc( 100% - 30px);
+        height: auto;
+        margin: 1.75rem auto;
+        max-height: calc(100vh - 3.5rem);
+        overflow: auto;
+        background-color: $whiteColor;
+        @include border-radius(4px);
+        @include padding(32px);
+        @include for-tablet-landscape-up{
+            width: 575px;
+        }
+    }
+
+    &__header {
+        text-align: center;
+        position: relative;
+
+        .title {
+            font-size: $fs-18;
+            @include padding-b(16px);
+            border-bottom: 1px solid $borderColor;
+
+            .close {
+                position: absolute;
+                cursor: pointer;
+                top: 0px;
+                right: 0px;
+
+                img{
+                    @include rotate(45deg);
+                }
+            }
+        }
+    }
+
+    &__body {
+        text-align: center;
+    }
+
+    &__footer {
+        border-top: 1px solid $borderColor;
+        @include padding-t(16px);
+        @include d-flex(center, space-between);
+        gap: 10px;
+    }
+}

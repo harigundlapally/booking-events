@@ -1,0 +1,98 @@
+@import 'variables', 'mixins', 'override';
+
+:root{
+    font-size: 16px;
+}
+
+body {
+    font-family: 'Almarai', sans-serif;
+    font-weight: $font-regular;
+    background-color: $whiteColor;
+    color: $baseFontColor;
+}
+
+p{
+    line-height: 24px;
+    @include margin-b(1rem);
+}
+
+.container {
+    margin-left: auto;
+    margin-right: auto;
+
+    @include for-desktop {
+        width: 1170px;
+    }
+
+    @include for-large-desktop {
+        width: 1249px;
+    }
+}
+
+.page-wrapper {
+    @include padding-t(68px);
+
+    @include for-tablet-portrait-up {
+        @include padding-t(73px);
+    }
+
+    @include for-tablet-landscape-up {
+        @include padding-t(0px);
+    }
+}
+
+.width-auto {
+    width: auto !important;
+}
+
+.float-right {
+    float: right;
+}
+
+.btn {
+    padding: 16px;
+    @include border-radius(4px);
+    width: 100%;
+    font-size: $fs-16;
+    font-weight: $font-bold;
+    cursor: pointer;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+
+    img{
+        @include margin-r(10px);
+    }
+
+    &--orange-whitebg{
+        border: 2px solid $primaryColor;
+        background-color: $whiteColor;
+        color: $primaryColor;
+    }
+
+    &--orange{
+        border: 2px solid $primaryColor;
+        background-color: $primaryColor;
+        color: $whiteColor;
+    }
+
+    &--orange-noBg{
+        border: 2px solid $whiteColor;
+        background-color: $whiteColor;
+        color: $primaryColor;
+    }
+
+    &--disabled {
+        color: $disabledColor;
+        border-color: $disabledColor;
+        pointer-events: none;
+    }
+}
+
+.hidden {
+    display: none;
+}
+
+.show {
+    display: block;
+}

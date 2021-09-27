@@ -1,0 +1,15 @@
+@import '../../mixins','../../variables';
+
+.dashboard{
+    position: relative;
+    @include margin-v(32px);
+    @include padding-h(32px);
+    @include for-tablet-landscape-up{
+        @include padding-h(0px);
+    }
+    
+    &__title {
+        font-size: $fs-24;
+        @include margin-b(16px);
+    }
+}

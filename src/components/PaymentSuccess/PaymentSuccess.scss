@@ -1,0 +1,44 @@
+@import '../../mixins','../../variables';
+
+.payment-success {
+    position: relative;
+    text-align: center;
+    @include margin-t(50px);
+
+    h1{
+        font-size: $fs-36;
+    }
+
+    &__details{
+        width: 100%;
+        @include padding(32px);
+        @include box-sizing(border-box);
+        @include for-tablet-landscape-up {
+            width: 580px;
+            @include margin-v(0);
+            @include margin-h(auto);
+        }
+
+        ul{
+            border: 1px solid $borderColor;
+            li{
+                @include d-flex(center, space-between);
+                @include padding(16px);
+                text-align: left;
+                border-bottom: 1px solid $borderColor;
+
+                .type{
+                    min-width: 150px;
+                }
+                .value {
+                    flex: 1;
+
+                    .attendee {
+                        @include margin-b(16px);
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
+}

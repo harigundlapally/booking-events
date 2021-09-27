@@ -1,0 +1,127 @@
+@import '../../mixins', '../../variables';
+
+.event{ 
+    position: relative;
+    @include box-sizing(border-box);
+    width: 100%;
+    font-size: $fs-18;
+    border: 1px solid $borderColor;
+    @include box-shadow( 0px, 2px, 2px, rgba(0, 0, 0, 0.15));
+    @include border-radius(4px);
+    overflow: hidden;
+    @include padding(24px);
+    @include d-flex(flex-start, space-between);
+    @include for-tablet-landscape-up {
+        display: block;
+        width: calc( 33.33% - 15px );
+        @include padding(0px);
+    }
+
+    &__image {
+        display: none;
+        @include for-tablet-portrait-up {
+            width: 120px;
+            height: 120px;
+            display: block;
+        }
+        @include for-tablet-landscape-up {
+            width: 100%;
+            height: auto;
+        }
+        img{
+            width: 100%;
+            @include for-tablet-portrait-up {
+                width: 100%;
+                height: 100%;
+            }
+
+            @include for-tablet-landscape-up {
+                width: 100%;
+            }
+        }
+    }
+
+    &__details{
+        @include margin(0px);
+        @include d-flex(center, space-between);
+        flex: 1;
+        @include for-tablet-portrait-up {
+            flex: 1;
+            @include margin(24px);
+        }
+        @include for-tablet-landscape-up {
+            flex: auto;
+            display: block;
+        }
+    }
+
+    &__description {
+        @include margin-r(15px);
+        @include for-tablet-landscape-up {
+            @include margin-r(0px);
+        }
+    }
+
+    &__title{
+        h2{
+            font-size: $fs-24;
+            line-height: 26px;
+            font-weight: $font-bold;
+            display: block;
+            max-width: 100%;
+            @include margin-b(12px);
+            
+            @include for-tablet-landscape-up{
+                @include margin-b(24px);
+                height: 54px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+                
+            }
+        }
+    }
+
+    &__dateTickets {
+        @include d-flex(flex-start, space-between);
+        flex-direction: column;
+        @include for-tablet-landscape-up {
+            flex-direction: row;
+            @include margin-b(32px);
+            @include d-flex(center, space-between);
+        }
+
+        .date{
+            @include margin-b(8px);
+            @include for-tablet-landscape-up {
+                @include margin-b(0px);
+            }
+        }
+
+        .tickets-availability {
+            span {
+                color: $primaryColor;
+            }
+        }
+    }
+
+    &__action {
+        .btn {
+            img {
+                @include margin-r(0);
+                @include for-tablet-landscape-up {
+                    @include margin-r(10px);
+                }
+            }
+            &--orange-whitebg {
+                span{
+                    display: none;
+                    @include for-tablet-landscape-up {
+                        display: inline-block;
+                    }
+                }
+            }
+        }
+    }
+}

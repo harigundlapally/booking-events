@@ -1,0 +1,77 @@
+@import '../../mixins','../../variables';
+
+.navbar {
+    position: relative;
+
+    &__hamburger{
+        display: block;
+        @include for-tablet-landscape-up {
+            display: none;
+        }
+    }
+
+    &__menu{
+        position: fixed;
+        left: -100%;
+        width: 100%;
+        height: calc( 100% - 68px);
+        top: 68px;
+        z-index: 10;
+        background-color: $headerBgColor;
+        -webkit-transform: translate3d(-100%, 0px, 0px);
+        transform: translate3d(-100%, 0px, 0px);
+        transition: all 0.5s ease 0s;
+        -webkit-transition: all 0.5s ease 0s;
+
+        @include for-tablet-portrait-up {
+            top: 73px;
+            height: calc( 100% - 73px);
+        }
+
+        @include for-tablet-landscape-up {
+            display: flex;
+            position: relative;
+            left: auto;
+            top: auto;
+            height: 100%;
+            transform: none;
+        }
+
+        &--active{
+            left: 0;
+            -webkit-transform: translate3d(0%, 0px, 0px);
+            transform: translate3d(0%, 0px, 0px);
+            transition: all 0.5s ease 0s;
+            -webkit-transition: all 0.5s ease 0s;
+        }
+        
+        li{
+            a{
+                color: $whiteColor;
+                text-decoration: none;
+                @include margin-l(0px);
+                @include padding-h(32px);
+                display: block;
+                font-weight: $font-bold;
+                font-size: $fs-18;
+                border-bottom: 10px solid $headerBgColor;
+                @include padding-v(29px);
+
+                @include for-tablet-landscape-up {
+                    @include padding-t(40px);
+                    @include padding-b(30px);
+                    @include margin-l(40px);
+                    @include padding-h(0px);
+                }
+
+                &.active {
+                    border-bottom: 2px solid $secondaryColor;
+                    
+                    @include for-tablet-portrait-up{
+                        border-bottom: 10px solid $secondaryColor;
+                    }
+                }
+            }
+        }
+    }
+}

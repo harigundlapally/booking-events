@@ -1,0 +1,40 @@
+@import '../../mixins','../../variables';
+
+.search {
+    position: relative;
+    @include padding-hv(24px, 16px);
+    background-color: $tertiaryColor;
+
+    @include for-tablet-portrait-up{
+        @include padding-hv(32px, 24px);
+    }
+    
+    &__group{
+        width: 100%;
+        background-color: $whiteColor;
+        border: 2px solid $borderColor;
+        height: 50px;
+        @include box-sizing(border-box);
+        @include border-radius(4px);
+        padding: 16px;
+        @include d-flex(center, space-between);
+        @include for-desktop{
+            width: 680px;
+        }
+
+        input{
+            width: calc( 100% - 50px);
+            border: 0px;
+            &:focus {
+                outline: 0;
+                box-shadow: none;
+            }
+        }
+
+        span{
+            width: 40px;
+            @include d-flex(center, center);
+            cursor: pointer;
+        }
+    }
+}

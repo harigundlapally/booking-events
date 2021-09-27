@@ -1,0 +1,33 @@
+@import '../../mixins', '../../variables';
+
+.eventListing{ 
+    position: relative;
+    @include padding-hv(24px,41px);
+    @include for-tablet-portrait-up {
+        @include padding-hv(32px,64px);
+    }
+    @include for-desktop {
+        @include padding-hv(0px,64px);
+    }
+
+    &__title{
+        font-weight: $font-light;
+        font-size: $fs-36;
+        line-height: 40px;
+        @include margin-b(24px);
+        span{
+            font-weight: $font-extrabold;
+        }
+    }
+
+    &__event{
+        @include d-flex(center, space-between);
+        flex-wrap: wrap;
+        gap: 22px;
+
+        &::after {
+            content: '';
+            flex: auto;
+        }
+    }
+}
